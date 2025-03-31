@@ -1,0 +1,45 @@
+<p class="">{{ title }}</p>
+<p>Mon utilisateur</p>
+<div style="list-style-type: none; cursor: pointer" (click)="handleClick()">
+  <ul>
+    <li>{{user.name }}</li>
+    <li>{{ user.age }}</li>
+  </ul>
+</div>
+<button (click)="handleClick()">cliquez ici !</button>
+
+
+<div class="myFormContainer">
+  <form (submit)="handleSubmit($event)">
+    <label for="name">Nom:</label>
+    <input type="text" name="name" id="name"><br>
+    <label for="age">Age:</label>
+    <input type="number" name="age" id="age"><br>
+    <button type="submit">Envoyer</button>
+  </form>
+</div>
+
+<input type="checkbox" (change)="handleCheckBoxChange($event)">
+<p>{{ checkBoxValue }}</p>
+
+<!--
+<input type="checkbox" [checked]="checkBox_2_Value">
+<p>{{ checkBox_2_Value }}</p>
+-->
+
+<input type="checkbox" [(ngModel)]="checkBox_2_Value">
+<p>{{ checkBox_2_Value }}</p>
+
+<!--|| -> ou logique-->
+@if (checkBoxValue || checkBox_2_Value) {
+<p>Une des deux checkBox est cochée !</p>
+}
+
+<!-- Exemple if/else avec un ET logique -->
+@if (checkBoxValue && checkBox_2_Value) {
+<p>Une des deux checkBox est cochée !</p>
+}
+@else {
+<p>Aucune des deux checkBox n'est cochée !</p>
+
+}
