@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MyFirstComponentComponent } from "../components/my-first-component/my-first-component.component";
+import { MyFormComponent } from "../components/my-form/my-form.component";
+import { NgForComponent } from "../components/ng-for/ng-for.component";
 
 
 interface Person {
@@ -10,7 +12,7 @@ interface Person {
 
 @Component({
   selector: 'app-root',
-  imports: [MyFirstComponentComponent],
+  imports: [MyFirstComponentComponent, MyFormComponent, NgForComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

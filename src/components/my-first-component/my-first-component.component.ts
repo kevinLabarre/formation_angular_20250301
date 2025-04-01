@@ -37,19 +37,19 @@ export class MyFirstComponentComponent {
     alert("J'ai cliqué !")
   }
 
-  handleSubmit(e: Event): void {
-    e.preventDefault();
-    console.log(e);
-    alert("formulaire envoyé !")
+  // handleSubmit(e: Event): void {
+  //   e.preventDefault();
+  //   console.log(e);
+  //   alert("formulaire envoyé !")
 
-    const target = e.target as HTMLFormElement
-    const formData = new FormData(target)
+  //   const target = e.target as HTMLFormElement
+  //   const formData = new FormData(target)
 
-    const name: string = formData.get('name')!.toString();
-    const age: number = Number(formData.get('age'));
+  //   const name: string = formData.get('name')!.toString();
+  //   const age: number = Number(formData.get('age'));
 
-    alert(`Nom: ${name}, Age: ${age}`)
-  }
+  //   alert(`Nom: ${name}, Age: ${age}`)
+  // }
 
 
   handleCheckBoxChange(e: Event): void {

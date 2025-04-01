@@ -1,0 +1,30 @@
+<section>
+  <button (click)="handleClick()">afficher / masquer le formulaire</button>
+
+  @if (displayForm) {
+  <div class="myFormContainer">
+    <form (submit)="handleSubmit($event)">
+      <label for="name">Nom:</label>
+      <input type="text" name="name" id="name"><br>
+      <label for="age">Age:</label>
+      <input type="number" name="age" id="age"><br>
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+  }
+</section>
+<!--
+input + texte avec [(ngModel)]
+-->
+<section>
+  <input type="text" [(ngModel)]="inputValue">
+  <p>{{inputValue}}</p>
+</section>
+
+<!--
+input + texte avec (change)
+-->
+<section>
+  <input type="text" (change)="handleInputChange($event)">
+  <p>{{inputValue2}}</p>
+</section>
