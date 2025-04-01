@@ -1,4 +1,41 @@
 <section>
   <h1>TP &#64;For</h1>
   <pre [innerHTML]="consigne"></pre>
+
+
+  <input type="text" (input)="handleSearch($event)">
+  @for (user of users; track user.email; let index = $index){
+  <ul>
+    <li>index: {{index}}</li>
+    <li>{{user.name}}</li>
+    <li>{{user.age}}</li>
+    <li>{{user.address}}</li>
+    <li>{{user.phone}}</li>
+    <li>{{user.email}}</li>
+  </ul>
+  <button (click)="handleDeleteUser(index)">supprimer</button>
+
+  <br>
+  }
+
+  <button (click)="handleShowForm()">Ajouter un utilisateur</button>
+
+  @if (displayForm) {
+  <form (submit)="handleAddUser($event)">
+    <label for="name">Nom: </label>
+    <input type="text" name="name" id="name">
+    <label for="age">Age: </label>
+    <input type="number" name="age" id="age">
+    <label for="address">Adresse: </label>
+    <input type="text" name="address" id="address">
+    <label for="phone">Num&eacute;ro de t&eacute;l&eacute;phone: </label>
+    <input type="text" name="phone" id="phone">
+    <label for="email">Email: </label>
+    <input type="email" name="email" id="email">
+    <button type="submit">Ajouter</button>
+  </form>
+
+  }
+
+
 </section>

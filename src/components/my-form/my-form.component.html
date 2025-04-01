@@ -25,6 +25,6 @@ input + texte avec [(ngModel)]
 input + texte avec (change)
 -->
 <section>
-  <input type="text" (change)="handleInputChange($event)">
+  <input type="text" (input)="handleInputChange($event)">
   <p>{{inputValue2}}</p>
 </section>

@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-ng-for',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './ng-for.component.html',
   styleUrl: './ng-for.component.css'
 })
 export class NgForComponent {
+
+  displayForm: boolean = false
+
   consigne: string =
     "<pre>Le <strong>@for</strong>" +
     " permet de boucler sur un ensemble de données." +
@@ -59,5 +63,41 @@ export class NgForComponent {
       email: 'bob.smith@example.com'
     }
   ]
+
+  originalUsers: any = [...this.users]
+
+  handleDeleteUser(index: number): void {
+    // splice en JS , prend en paramètre:
+    // -  l'index du premier élément à supprimer
+    // -  le nombre d'élément à supprimer
+    this.users.splice(index, 1);
+  }
+
+  handleShowForm(): void {
+    this.displayForm = !this.displayForm
+  }
+
+  handleAddUser(e: Event): void {
+    e.preventDefault();
+    const target = e.target as HTMLFormElement
+    const formData = new FormData(target)
+    const name: string = formData.get('name')!.toString();
+    const age: number = Number(formData.get('age'));
+    const address: string = formData.get('address')!.toString();
+    const phone: string = formData.get('phone')!.toString();
+    const email: string = formData.get('email')!.toString();
+
+    this.users.push({ name, age, address, phone, email })
+  }
+
+  handleSearch(e: Event) {
+    const target = e.target as HTMLInputElement;
+    const searchValue = target.value.toLowerCase();
+
+    this.users = this.originalUsers.filter((user: any) => user.name.toLowerCase().includes(searchValue))
+
+
+
+  }
 
 }
